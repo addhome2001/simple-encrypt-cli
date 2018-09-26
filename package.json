@@ -9,12 +9,12 @@
   "engines": {
     "node": ">=8"
   },
-  "repositories": [
-      {
-        "type": "git",
-        "url": "https://github.com/addhome2001/simple-encrypt-cli.git"
-      }
-   ],
+  "repository": [
+    {
+      "type": "git",
+      "url": "https://github.com/addhome2001/simple-encrypt-cli.git"
+    }
+  ],
   "preferGlobal": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
