@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const { AES, DES, TripleDES, Rabbit, RC4, enc } = require('crypto-js');
-const Caesar = require('ebg13');
+const Caesar = require('caesar-cipher-al');
 
 const algorithms = {
   AES,
@@ -37,9 +37,6 @@ const encryptQuestions = [
 
 const getProcessor = (purpose, algorithm) => {
   const algorithmMethods = algorithms[algorithm];
-  if (algorithm === 'Caesar') {
-    return algorithmMethods;
-  }
 
   if (algorithmMethods.hasOwnProperty(purpose)) {
     return algorithmMethods[purpose];
