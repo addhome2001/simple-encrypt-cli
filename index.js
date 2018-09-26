@@ -13,6 +13,30 @@ const algorithms = {
   Caesar,
 };
 
+const decryptQuestions = [
+  {
+    type: 'password',
+    name: 'passphrase',
+    message: 'What is your passphrase?',
+    default: ''
+  },
+];
+
+const encryptQuestions = [
+  {
+    type: 'password',
+    name: 'passphrase',
+    message: 'What is your passphrase?',
+    default: ''
+  },
+  {
+    type: 'password',
+    name: 'passphraseAgain',
+    message: 'What is your passphrase again?',
+    default: ''
+  },
+];
+
 const getProcessor = (purpose, algorithm) => {
   const algorithmMethods = algorithms[algorithm];
   if (algorithm === 'Caesar') {
@@ -61,29 +85,6 @@ module.exports = async () => {
         validate: input => !!input.length || 'The input is empty.'
       },
     ]);
-    const decryptQuestions = [
-      {
-        type: 'password',
-        name: 'passphrase',
-        message: 'What is your passphrase?',
-        default: ''
-      },
-    ];
-
-    const encryptQuestions = [
-      {
-        type: 'password',
-        name: 'passphrase',
-        message: 'What is your passphrase?',
-        default: ''
-      },
-      {
-        type: 'password',
-        name: 'passphraseAgain',
-        message: 'What is your passphrase again?',
-        default: ''
-      },
-    ];
 
     const isEncrypt = purpose === 'encrypt';
 
@@ -111,7 +112,7 @@ module.exports = async () => {
         },
       ]);
 
-      return toBeContinued ? a(result, purpose, isEncrypt) : result;
+      return toBeContinued ? interaction(result, purpose, isEncrypt) : result;
     }
 
     const result = await interaction(input, purpose, isEncrypt);
