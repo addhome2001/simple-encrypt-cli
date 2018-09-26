@@ -2,8 +2,6 @@ const inquirer = require('inquirer');
 const { AES, DES, TripleDES, Rabbit, RC4, enc } = require('crypto-js');
 const Caesar = require('ebg13');
 
-const separator = new inquirer.Separator();
-
 const algorithms = {
   AES,
   DES,
